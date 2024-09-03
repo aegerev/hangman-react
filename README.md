@@ -11,14 +11,15 @@ The idea was to create a simple, yet interactive, game of Hangman using React (a
 * The State of the game holds the core of the game. The state has the secret word, guessed letters, etc. The State keeps the game going.
 * When it comes to communication, the game uses 2 things: props and callback functions. Props are used to pass data from the parent container to the State and child components. Callback functions are used to communicate between child components and the parent component. 
 
-# Technology Stack
+## Technology Stack
 * React
   * useState()
   * Callback functions
 
+## Deployment
 Deployed: https://aegerev.github.io/cyberchase-compuprogramming/
 GitHub repo: https://github.com/aegerev/hangman-react
 
 (c) 2024 Alexander Egerev. All Rights Reserved.
-ONE PIECE, Power Fruits, Straw Hat Pirates, and affiliated characters and items TM and (c)1997, 1999 Eiichiro Oda/Shueisha, Toei Animation. All Rights Reserved.
+
 
