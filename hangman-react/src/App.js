@@ -1,50 +1,52 @@
-import React, {useState, useEffect} from 'react';
-import WordDisplay from './components/WordDisplay.js';
-import Keyboard from './components/Keyboard.js';
-import HangmanStatus from './components/HangmanStatus.js';
+import React, { useState, useEffect } from 'react';
+import WordDisplay from './components/WordDisplay';
+import Keyboard from './components/Keyboard';
+import HangmanStatus from './components/HangmanStatus';
 import './App.css';
 
 function App() {
+	const secretWords = ['ariel', 'eric', 'melody', 'coral', 'aviva', 'koki', 'chris','martin', 'jodi', 'edison', 'pythagoras'];
+	const [secretWord] = useState(
+		secretWords[Math.floor(Math.random() * secretWords.length)]
+	);
+	console.log(secretWord);
+	const [guessedLetters, setGuessedLetters] = useState([]);
+	const [wrongGuesses, setWrongGuesses] = useState(0);
+	const maxWrongGuesses = 6;
 
-  let words = ['ariel', 'eric', 'melody', 'coral', 'aviva', 'koki', 'chris','martin', 'jodi', 'edison', 'pythagoras'];
-  let [secretWord] = useState(words[Math.floor(Math.random() * words.length)]);
+	const handleGuess = (letter) => {
+		if (!guessedLetters.includes(letter)) {
+			setGuessedLetters([...guessedLetters, letter]);
+			if (!secretWord.includes(letter)) {
+				setWrongGuesses(wrongGuesses + 1);
+			}
+		}
+	};
 
-  console.log(secretWord);
+	useEffect(() => {
+		const hasWon = secretWord
+			.split('')
+			.every((letter) => guessedLetters.includes(letter));
+		if (hasWon) {
+			alert("Congratulations! You've won!");
+		}
 
-  const [guessedLetters, setGuessedLetters] = useState([]);
-  const [wrongGuesses, setWrongGuesses] = useState(0);
-  const maxWrongGuesses = 10;
+		if (wrongGuesses >= maxWrongGuesses) {
+			alert("Sorry! You've lost. The word was " + secretWord);
+		}
+	}, [guessedLetters, wrongGuesses, secretWord]);
 
-  let handleGuess = (letter) => {
-    if(!guessedLetters.includes(letter)) {
-      setGuessedLetters([...guessedLetters, letter]);
-      if(!secretWord.includes(letter)) {
-        setWrongGuesses(wrongGuesses + 1);
-      }
-    }
-  };
-
-  useEffect(() => {
-    let hasWon = secretWord.split().every((letter) => guessedLetters.includes(letter));
-      if(hasWon) {
-        alert("Congrats - you're the winner!");
-      } 
-
-      if(wrongGuesses >= maxWrongGuesses){
-        alert("Sorry about that - you lost. The correct word was: " + secretWord);
-      }
-
-  }, [guessedLetters, wrongGuesses, secretWord]);
-
-
-  return (
-    <div className="App">
-      <h1>Hangman Game, New Adventures Edition</h1>
-      <WordDisplay secretWord={secretWord} guessedLetters={guessedLetters}/>
-      <HangmanStatus wrongGuesses={wrongGuesses} maxWrongGuesses={maxWrongGuesses}/>
-      <Keyboard handleGuess={handleGuess} guessedLetters = {guessedLetters} />
-    </div>
-  );
+	return (
+		<div className="App">
+			<h1>Hangman Game</h1>
+			<WordDisplay secretWord={secretWord} guessedLetters={guessedLetters} />
+			<HangmanStatus
+				wrongGuesses={wrongGuesses}
+				maxWrongGuesses={maxWrongGuesses}
+			/>
+			<Keyboard handleGuess={handleGuess} guessedLetters={guessedLetters} />
+		</div>
+	);
 }
 
 export default App;
