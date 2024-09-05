@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
 
-  let words = ['ariel', 'eric', 'melody', 'coral', 'aviva', 'koki', 'chris','martin', 'jodi'];
+  let words = ['ariel', 'eric', 'melody', 'coral', 'aviva', 'koki', 'chris','martin', 'jodi', 'edison', 'pythagoras'];
   let [secretWord] = useState(words[Math.floor(Math.random() * words.length)]);
 
   console.log(secretWord);
