@@ -5,3 +5,5 @@ function HangmanStatus({wrongGuesses, maxWrongGuesses}) {
         <h4> Wrong Guesses: {wrongGuesses} </h4>
     )
 }
+
+export default HangmanStatus;
