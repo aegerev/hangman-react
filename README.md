@@ -18,8 +18,11 @@ However, make sure to hit the "Refresh" button every time - that refreshes the p
   * Callback functions
 
 ## Deployment
-Deployed: https://aegerev.github.io/cyberchase-compuprogramming/
+Deployed: https://aegerev.github.io/hangman-react
+
 GitHub repo: https://github.com/aegerev/hangman-react
+
+
 
 (c) 2024 Alexander Egerev. All Rights Reserved.
 
