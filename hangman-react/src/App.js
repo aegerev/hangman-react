@@ -14,6 +14,10 @@ function App() {
 	const [wrongGuesses, setWrongGuesses] = useState(0);
 	const maxWrongGuesses = 6;
 
+	function refreshPage() {
+        window.location.reload(false);
+    }
+
 	const handleGuess = (letter) => {
 		if (!guessedLetters.includes(letter)) {
 			setGuessedLetters([...guessedLetters, letter]);
@@ -29,10 +33,12 @@ function App() {
 			.every((letter) => guessedLetters.includes(letter));
 		if (hasWon) {
 			alert("Congratulations! You've won!");
+			refreshPage();
 		}
 
 		if (wrongGuesses >= maxWrongGuesses) {
 			alert("Sorry! You've lost. The word was " + secretWord);
+			refreshPage();
 		}
 	}, [guessedLetters, wrongGuesses, secretWord]);
 
