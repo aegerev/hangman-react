@@ -11,7 +11,7 @@ The idea was to create a simple, yet interactive, game of Hangman using React. D
 * The State of the game holds the core of the game. The state has the secret word, guessed letters, etc. The State keeps the game going.
 * When it comes to communication, the game uses 2 things: props and callback functions. Props are used to pass data from the parent container to the State and child components. Callback functions are used to communicate between child components and the parent component.
 
- UPDATE 12.16.24: The app is updated with all-new characters from the show! Some of them are new, some characters that were there had to be removed. Additionally, each time you win (or lose), after you click 'ok', the page **the page refreshes.** So go right ahead - play as much as you want to!
+ UPDATE 12.16.24: The app is updated with all-new characters from the show! Some of them are new, some characters that were there had to be removed. Additionally, each time you win (or lose), after you click 'ok', **the page refreshes.** So go right ahead - play as much as you want to!
 ## Technology Stack
 * React
   * useState()
