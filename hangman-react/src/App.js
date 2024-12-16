@@ -5,7 +5,7 @@ import HangmanStatus from './components/HangmanStatus';
 import './App.css';
 
 function App() {
-	const secretWords = ['ariel', 'eric', 'melody', 'coral', 'aviva', 'koki', 'chris','martin', 'jodi', 'edison', 'pythagoras'];
+	const secretWords = ['ariel', 'eric', 'melody', 'coral', 'aviva', 'koki', 'chris','martin', 'delaney', 'maria'];
 	const [secretWord] = useState(
 		secretWords[Math.floor(Math.random() * secretWords.length)]
 	);
