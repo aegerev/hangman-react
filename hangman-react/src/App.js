@@ -5,14 +5,14 @@ import HangmanStatus from './components/HangmanStatus';
 import './App.css';
 
 function App() {
-	const secretWords = ['ariel', 'eric', 'melody', 'coral', 'aviva', 'koki', 'chris', 'martin', 'delaney', 'maria'];
+	const secretWords = ['ariel', 'eric', 'melody', 'coral', 'aviva', 'koki', 'chris','martin', 'jodi', 'edison', 'pythagoras'];
 	const [secretWord] = useState(
 		secretWords[Math.floor(Math.random() * secretWords.length)]
 	);
 	console.log(secretWord);
 	const [guessedLetters, setGuessedLetters] = useState([]);
 	const [wrongGuesses, setWrongGuesses] = useState(0);
-	const maxWrongGuesses = 10;
+	const maxWrongGuesses = 6;
 
 	const handleGuess = (letter) => {
 		if (!guessedLetters.includes(letter)) {
